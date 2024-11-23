@@ -39,8 +39,7 @@ class UserController
             if (preg_match('/\s/', $validated['user']) || preg_match('/[^\x20-\x7E]/', $validated['user'])) {
                 throw new \Exception('User name cannot contain spaces or special characters');
             }
-
-            $birthDate = \DateTime::createFromFormat('d/m/Y', $validated['birth']);
+            $birthDate = \DateTime::createFromFormat('Y-m-d', $validated['birth']);
             $today = new \DateTime();
             $age = $today->diff($birthDate)->y;
 

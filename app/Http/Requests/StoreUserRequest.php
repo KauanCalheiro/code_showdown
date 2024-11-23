@@ -25,7 +25,7 @@ class StoreUserRequest extends FormRequest
     {
         return [
             'user' => 'required|unique:users,user|regex:/^[a-zA-Z0-9_]+$/',
-            'birth' => 'required|date|before:-18 years',
+            'birth' => 'required|date_format:Y-m-d|before:-18 years',
             'gender' => 'required|in:m,f',
             'foods' => 'nullable|array',
             'foods.*' => 'string'
